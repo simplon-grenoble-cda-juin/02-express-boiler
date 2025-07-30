@@ -6,8 +6,10 @@
   "scripts": {
     "start": "tsx index.ts",
     "dev": "tsx watch index.ts",
+    "build:all": "npm run build:css && npm run build:js",
     "build:js": "rollup -c",
     "build:css": "sass src/scss/style.scss public/css/style.css",
+    "watch:css": "sass --watch src/scss/style.scss public/css/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

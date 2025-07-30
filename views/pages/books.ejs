@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Liste des livres</h1>
+<%- include("../partials/head", {
+  title: "Liste des livres"
+}) %>
 
-    <% ingredients.map((ingredient) => { %> 
-        <li> <%= ingredient.name %> </li>
-    <% }) %>
+<h1>Liste des livres</h1>
 
-  </body>
-</html>
+<% ingredients.map((ingredient) => { %>
+  <li><%= ingredient.name %></li>
+<% }) %> 
+
+<%- include("../partials/footer") %>

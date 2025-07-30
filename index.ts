@@ -22,6 +22,9 @@ app.set("view engine", "ejs");
 // J'indique à EJS où trouver le dossier contenant mes vues
 app.set("views", path.join(__dirname, "views"));
 
+// J'indique à Express d'utiliser le dossier public pour servir les fichiers statics (JS, CSS, images ...)
+app.use(Express.static(path.join(__dirname, "public")))
+
 // On lie le router à l'application Express
 app.use("/", router);
 

@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accueil Bibliothèque</title>
-  </head>
-  <body>
-    <h1>Bienvenue à la bibliothèque Simplon !!!</h1>
+<%- include("../partials/head", {
+  title: "Accueil bibliothèque"
+}) %>
 
-    <% if (isAuthenticated) { %>
-        <p>Bienvenue, <%= name %> !</p>
-    <% } else { %>
-        <p>Bienvenue, inconnu(e).</p>
-    <% } %>
-  </body>
-</html>
+<h1>Bienvenue à la bibliothèque Simplon !!!</h1>
+
+<% if (isAuthenticated) { %>
+<p>Bienvenue, <%= name %> !</p>
+<% } else { %>
+<p>Bienvenue, inconnu(e).</p>
+<% } %>
+
+<%- include("../partials/footer") %>
