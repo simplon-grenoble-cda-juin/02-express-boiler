@@ -1,13 +1,9 @@
-<%- include("../partials/head", {
-  title: "Accueil bibliothèque"
-}) %>
+<%- include("../partials/head", { title: "Accueil bibliothèque" }) %>
 
-<h1>Bienvenue à la bibliothèque Simplon !!!</h1>
+<h1>Simplothèque Grenoble</h1>
 
 <% if (isAuthenticated) { %>
-<p>Bienvenue, <%= name %> !</p>
+<p>Bienvenue <%= name %> !</p>
 <% } else { %>
 <p>Bienvenue, inconnu(e).</p>
-<% } %>
-
-<%- include("../partials/footer") %>
+<% } %> <%- include("../partials/footer") %>

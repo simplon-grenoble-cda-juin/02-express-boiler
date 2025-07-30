@@ -1,4 +1,4 @@
-import Express from "express"; // PAS BON : { Express }
+import Express from "express";
 import router from "./routes";
 import { fileURLToPath } from "node:url";
 import path from "node:path";

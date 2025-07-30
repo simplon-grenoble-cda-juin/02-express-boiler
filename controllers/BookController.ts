@@ -1,4 +1,3 @@
-import { ingredients } from "../data";
 import { Controller } from "../libs/Controller";
 
 const books = [
@@ -16,10 +15,24 @@ const bookComments = [
 
 export class BookController extends Controller {
   public browseBooks() {
-    // Manipule les données
+    const success = this.request.query.success;
+    let flash = null;
+
+    if (success === "true") {
+      flash = {
+        type: "success",
+        message: "Le livre a bien été créé.",
+      };
+    } else if (success === "false") {
+      flash = {
+        type: "error",
+        message: "Une erreur est survenue lors de la création du livre.",
+      };
+    }
 
     this.response.render("pages/books.ejs", {
-      ingredients,
+      books,
+      flash,
     });
   }
 
@@ -38,14 +51,15 @@ export class BookController extends Controller {
     }
 
     // Puisque j'ai trouvé le livre, j'utilise son ID pour identifier les commentaires correspondants au livre
-    const relatedComments = bookComments.filter((bookComment) => {
+    const comments = bookComments.filter((bookComment) => {
       return bookComment.bookId == book?.id;
     });
 
     // Si j'ai trouvé le livre
-    this.response.send(
-      `Bienvenue sur le détail du livre : ${book?.title}. Il y a ${relatedComments.length} commentaire(s)`
-    );
+    this.response.render("pages/book.ejs", {
+      book,
+      comments,
+    });
   }
 
   public editBook() {
