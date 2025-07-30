@@ -9,6 +9,6 @@ const router = Router();
 router.use(globalRouter);
 
 // On lie le router spécial "book" au router principale
-router.use(bookRouter);
+router.use('/books', bookRouter);
 
 export default router;

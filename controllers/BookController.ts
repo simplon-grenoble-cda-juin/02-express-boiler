@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { ingredients } from "../data";
+import { Controller } from "../libs/Controller";
 
-// WTF : rien à faire la, juste utile pour l'explication
 const books = [
   { id: 1, title: "1984" },
   { id: 2, title: "Le Meilleur des mondes" },
@@ -14,20 +14,13 @@ const bookComments = [
   { id: 4, bookId: 1, message: "Super pour l'été" },
 ];
 
-export class BookController {
-  protected request: Request;
-  protected response: Response;
-
-  constructor(request: Request, response: Response) {
-    this.request = request;
-    this.response = response;
-  }
-
+export class BookController extends Controller {
   public browseBooks() {
-    // Faire des traitements (base de données, calculs, etc)
+    // Manipule les données
 
-    // Faire la réponse
-    this.response.send(JSON.stringify(books));
+    this.response.render("pages/books.ejs", {
+      ingredients,
+    });
   }
 
   public readBook() {

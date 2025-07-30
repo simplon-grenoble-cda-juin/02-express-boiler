@@ -5,31 +5,31 @@ import { BookController } from "../controllers/BookController";
 const bookRouter = Router();
 
 // Browse
-bookRouter.get("/books", (request, response) => {
+bookRouter.get("/", (request, response) => {
   const controller = new BookController(request, response);
   controller.browseBooks();
 });
 
 // Read
-bookRouter.get("/books/:id", (request, response) => {
+bookRouter.get("/:id", (request, response) => {
   const controller = new BookController(request, response);
   controller.readBook();
 });
 
 // Edit
-bookRouter.put("/books/:id", (request, response) => {
+bookRouter.put("/:id", (request, response) => {
   const controller = new BookController(request, response);
   controller.editBook();
 });
 
 // Add
-bookRouter.post("/books/", (request, response) => {
+bookRouter.post("/", (request, response) => {
   const controller = new BookController(request, response);
   controller.addBook();
 });
 
 // Delete
-bookRouter.delete("/books/:id", (request, response) => {
+bookRouter.delete("/:id", (request, response) => {
   const controller = new BookController(request, response);
   controller.deleteBook();
 });

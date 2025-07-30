@@ -1,22 +1,22 @@
-import { Request, Response } from "express";
+import { Controller } from "../libs/Controller";
 
-export class GlobalsController {
-  protected request: Request;
-  protected response: Response;
-
-  constructor(request: Request, response: Response) {
-    this.request = request;
-    this.response = response;
-  }
-
+export class GlobalsController extends Controller {
   public homepage() {
-    this.response.send("Bienvenue sur la page d'accueil");
+    const name = "Samantha";
+    const isAuthenticated = true;
+
+    this.response.render("pages/home", {
+      name,
+      isAuthenticated,
+    });
   }
 
+  // TODO : utiliser EJS pour la vue
   public contact() {
     this.response.send("Bienvenue sur la page de contact");
   }
 
+  // TODO : utiliser EJS pour la vue
   public about() {
     this.response.send("Bienvenue sur la page à propos");
   }
