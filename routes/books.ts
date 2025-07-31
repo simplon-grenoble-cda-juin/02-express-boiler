@@ -10,6 +10,18 @@ bookRouter.get("/", (request, response) => {
   controller.browseBooks();
 });
 
+// Add GET
+bookRouter.get("/add", (request, response) => {
+  const controller = new BookController(request, response);
+  controller.createBook();
+});
+
+// Add POST
+bookRouter.post("/", (request, response) => {
+  const controller = new BookController(request, response);
+  controller.addBook();
+});
+
 // Read
 bookRouter.get("/:id", (request, response) => {
   const controller = new BookController(request, response);
@@ -20,12 +32,6 @@ bookRouter.get("/:id", (request, response) => {
 bookRouter.put("/:id", (request, response) => {
   const controller = new BookController(request, response);
   controller.editBook();
-});
-
-// Add
-bookRouter.post("/", (request, response) => {
-  const controller = new BookController(request, response);
-  controller.addBook();
 });
 
 // Delete

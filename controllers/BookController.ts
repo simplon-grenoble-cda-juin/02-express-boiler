@@ -66,6 +66,10 @@ export class BookController extends Controller {
     this.response.send("Bienvenue sur l'éditon d'un livre");
   }
 
+  public createBook() {
+    this.response.render("pages/bookCreate.ejs");
+  }
+
   public addBook() {
     this.response.send("Bienvenue sur l'ajout d'un livre");
   }
