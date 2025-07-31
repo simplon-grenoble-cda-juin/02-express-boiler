@@ -66,12 +66,21 @@ export class BookController extends Controller {
     this.response.send("Bienvenue sur l'éditon d'un livre");
   }
 
+  // Afficher le formulaire pour créer un livre (ditribue une vue)
   public createBook() {
     this.response.render("pages/bookCreate.ejs");
   }
 
+  // Affiche rien, on traîte la soumission du formulaire d'ajout d'un livre
   public addBook() {
-    this.response.send("Bienvenue sur l'ajout d'un livre");
+    const newBook = {
+      id: books.length + 1,
+      title: this.request.body.title,
+    };
+
+    books.push(newBook);
+
+    this.response.redirect("/books?success=true");
   }
 
   public deleteBook() {

@@ -10,13 +10,13 @@ bookRouter.get("/", (request, response) => {
   controller.browseBooks();
 });
 
-// Add GET
+// Add GET - afficher le formulaire
 bookRouter.get("/add", (request, response) => {
   const controller = new BookController(request, response);
   controller.createBook();
 });
 
-// Add POST
+// Add POST - traiter le formulaire
 bookRouter.post("/", (request, response) => {
   const controller = new BookController(request, response);
   controller.addBook();
